@@ -1,1 +1,30 @@
 pt-BR:
+  activerecord:
+    attributes:
+      trainer:
+        age: Idade
+        email: "Email"
+        password: "Senha"
+        password_confirmation: "Confirmação da Senha"
+        name: "Nome"
+        gender: "Gêneros"
+        genders:
+          male: "Masculino"
+          female: "Feminino"
+          other: "Outro(a)"
+    errors:
+      models:
+        trainer:
+          attributes:
+            email: 
+              blank: "Obrigatório"
+            password:
+              blank: "Obrigatória"
+            password_confirmation:
+              blank: "Obrigatória"
+            name:
+              blank: "Obrigatório"
+
+  errors:
+    messages:
+      not_saved: "Não salvo, veja os errors"
