@@ -7,7 +7,7 @@ pt-BR:
         password: "Senha"
         password_confirmation: "Confirmação da Senha"
         name: "Nome"
-        gender: "Gêneros"
+        gender: "Gênero"
         genders:
           male: "Masculino"
           female: "Feminino"
