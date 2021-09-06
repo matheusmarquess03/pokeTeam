@@ -16,9 +16,6 @@ class TeamPolicy < ApplicationPolicy
   end
 
   def edit?
-
-    binding.pry
-
     @record.trainer == @trainer
   end
 
