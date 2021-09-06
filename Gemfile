@@ -46,8 +46,12 @@ gem 'bootstrap-modal-rails'
 gem 'cocoon'
 gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
+
 # Authentication
 gem 'devise', '4.7.3'
+
+# For consuming API
+gem 'rest-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
