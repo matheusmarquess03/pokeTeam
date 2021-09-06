@@ -1,4 +1,5 @@
 pt-BR:
+  webapp_slogan: "Times Pokemons"
   created: "%{model} foi criado com sucesso."
   created_f: "%{model} foi criada com sucesso."
   create_model: "Criar %{model}"
@@ -28,7 +29,7 @@ pt-BR:
       pokemon:
         name: "Nome"
         sprint_url: "Sprint Frontal"
-        type: "Tipo"
+        type_pokemon: "Tipo"
       team:
         name: "Nome"
         pokemon: "Pokemon"
@@ -39,7 +40,7 @@ pt-BR:
         age: "Idade"
         email: "Email"
         password: "Senha"
-        password_confirmation: "Confirmação da Senha"
+        password_confirmation: "Confirmação da senha"
         name: "Nome"
         gender: "Gênero"
         genders:
@@ -52,10 +53,12 @@ pt-BR:
           attributes:
             email: 
               blank: "Obrigatório"
+              taken: "já existe"
             password:
               blank: "Obrigatória"
             password_confirmation:
               blank: "Obrigatória"
+              confirmation: "diferente"
             name:
               blank: "Obrigatório"
         team:

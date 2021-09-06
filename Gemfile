@@ -43,9 +43,12 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap'
 gem 'bootstrap-modal-rails'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
 gem 'cocoon'
 gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
+gem "font-awesome-rails"
 
 # Authentication
 gem 'devise', '4.7.3'
