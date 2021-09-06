@@ -1,4 +1,4 @@
-<%= title t("team #{@team.name}", scope: "activerecord.models") %>
+<%= title "#{t(:team, scope: "activerecord.models")} #{@team.name}" %>
 
 <%= link_to_back(teams_path) %>
 <% if current_trainer == @team.trainer %>

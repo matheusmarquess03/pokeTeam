@@ -1,0 +1,41 @@
+<div class="bg-light w-75 mx-auto p-2">
+  <%= image_tag @trainer.picture, size: '200x200', class: 'img-thumbnail rounded mx-auto d-block mb-3' %>
+  <div class="row">
+    <div class="col-sm-6">
+      <p>
+        <%= t(:name, scope: 'activerecord.attributes.trainer') %>
+        <h5><%= @trainer.name %></h5>
+      </p>
+    </div>
+
+    <div class="col-sm-6">
+      <p>
+        <%= t(:email, scope: 'activerecord.attributes.trainer') %>
+        <h5><%= @trainer.email %></h5>
+      </p>
+    </div>
+
+    <div class="col-sm-6">
+      <p>
+        <%= t(:age, scope: 'activerecord.attributes.trainer') %>
+        <h5><%= @trainer.age %></h5>
+      </p>
+    </div>
+
+    <div class="col-sm-6">
+      <p>
+        <%= t(:gender, scope: 'activerecord.attributes.trainer') %>
+        <h5><%= @trainer.gender %></h5>
+      </p>
+    </div>
+  </div>
+
+
+  <div class="teams mt-4">
+    <h4>
+      <%= @trainer.teams.count %>
+      <%= t(:team, scope: 'activerecord.models').pluralize %>
+    </h4>
+    <%= render 'teams/teams_table', teams: @trainer.teams %>
+  </div>
+</div>

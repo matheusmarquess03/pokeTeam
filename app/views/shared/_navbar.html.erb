@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md d-flex navbar-dark bg-primary">
+  <a class="navbar-brand" href="#"><%= t(:webapp_slogan) %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <%= link_to t(:home, scope: 'menu'), root_path, class: "nav-link #{'active' if controller_path == 'home'}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t(:teams, scope: 'menu'), teams_path, class: "nav-link #{'active' if controller_path == 'teams'}" %>
+      </li>
+      <% if current_trainer %>
+        <li class="nav-item ">
+          <%= link_to profile_path(current_trainer), class: "nav-link #{'active' if controller_path == 'profile'}" do %>
+            <%= current_trainer.name %>
+          <% end %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= button_to destroy_trainer_session_path, method: :delete, class: 'nav-link btn' do %>
+            <%= t(:logout, scope: 'menu.dropdown') %>
+          <% end %>
+        </li>
+
+      <% end %>
+    </ul>
+  </div>
+</nav>
