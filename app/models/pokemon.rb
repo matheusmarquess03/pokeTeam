@@ -6,7 +6,7 @@ class Pokemon < ApplicationRecord
   
     private
       def verify_quantity_team
-        if self.team.count > 6
+        if self.team.pokemons.count > 6
           errors[:base] << I18n.t(:maximum_pokemon_team, scope: 'activerecord.errors.models.pokemon')
         end
       end
