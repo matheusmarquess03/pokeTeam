@@ -6,5 +6,7 @@ class Trainer < ApplicationRecord
  
   validates :name,presence: true
 
-  enum gender: [:male, :female, :other]       
+  enum gender: [:male, :female, :other]
+  
+  has_many :teams, dependent: :delete_all
 end

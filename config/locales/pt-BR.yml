@@ -1,8 +1,35 @@
 pt-BR:
+  created: "%{model} foi criado com sucesso."
+  created_f: "%{model} foi criada com sucesso."
+  create_model: "Criar %{model}"
+  creating_model: "Criando %{model}"
+  creating: "Criando"
+  deleted: "%{model} foi deletado com sucesso."
+  deleted_f: "%{model} foi deletada com sucesso."
+  edit_model: "Editar %{model}"
+  editing_model: "Editando %{model}"
+  editing: "Editando"
+  show_model: "Visualizar %{model}"
+  updated: "%{model} foi atualizado com sucesso."
+  updated_f: "%{model} foi atualizada com sucesso."
+
+  back: "Voltar"
+  destroy: "Deletar"
+  details: "Visualizar"
+  edit: "Editar"
+  show: "Visualizar"
+
   activerecord:
+    models:
+      team: "Time"
+      trainer: "Treinador"
     attributes:
+      time:
+        name: "Nome"
+        trainer: "Treinador"
+        trainer_id: "Treinador"
       trainer:
-        age: Idade
+        age: "Idade"
         email: "Email"
         password: "Senha"
         password_confirmation: "Confirmação da Senha"
@@ -24,7 +51,12 @@ pt-BR:
               blank: "Obrigatória"
             name:
               blank: "Obrigatório"
+        team:
+          attributes:
+            name:
+              blank: "Obrigatório"
 
   errors:
     messages:
       not_saved: "Não salvo, veja os errors"
+  

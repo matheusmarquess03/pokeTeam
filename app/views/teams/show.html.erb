@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p class="strong"><%= t(:name, scope: 'activerecord.attributes.team') %></p>
+
+<p><%= @team.name %></p>
+
+<%= link_to t(:edit), edit_team_path(@team) %> |
+
+<%= link_to t(:back), teams_path %>

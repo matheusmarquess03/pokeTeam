@@ -1,4 +1,5 @@
-cancel_my_account: "Cancelar minha conta"
+pt-BR:
+  cancel_my_account: "Cancelar minha conta"
   leave_it_blank_if_you_dont_want_to_change_it: "Deixe em branco caso não queira alterar sua senha"
   we_need_your_current_password_to_confirm_your_changes: "Preencha sua atual senha para confirmar as mudanças"
   remember_me: "Permanecer conectado"
@@ -75,4 +76,4 @@ cancel_my_account: "Cancelar minha conta"
       reset_password_instructions:
         subject: 'Instruções para redefinição de senha'
       unlock_instructions:
-        subject: 'Instruções para desbloqueio de conta'
+        subject: 'Instruções para desbloqueio de conta' 
