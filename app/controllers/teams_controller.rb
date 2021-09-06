@@ -4,26 +4,31 @@ class TeamsController < ApplicationController
 
   # GET /teams or /teams.json
   def index
+    authorize Team, :index?
     @teams = Team.all
   end
 
   # GET /teams/1 or /teams/1.json
   def show
+    authorize @team, :show?
   end
 
   # GET /teams/new
   def new
     @team = Team.new
     @team.pokemons.build
+    authorize @team, :new?
   end
 
   # GET /teams/1/edit
   def edit
+    authorize @team, :edit?
   end
 
   # POST /teams or /teams.json
   def create
     @team = Team.new(team_params)
+    authorize @team, :create?
     params[:team][:pokemons_attributes].each do |index, pokemon|
       unless pokemon['name'].blank?
         pokeapi = GetPokedex.new(pokemon['name']).get_pokemon()
@@ -38,37 +43,29 @@ class TeamsController < ApplicationController
       end
     end
     @team.trainer = current_trainer
-    respond_to do |format|
-      if @team.save
-        format.html { redirect_to @team, notice: "Team was successfully created." }
-        format.json { render :show, status: :created, location: @team }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
+
+    if @team.save
+      redirect_to @team, notice: t(:created, model: t(:team, scope: 'activerecord.models'))
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /teams/1 or /teams/1.json
   def update
-    respond_to do |format|
-      if @team.update(team_params)
-        format.html { redirect_to @team, notice: "Team was successfully updated." }
-        format.json { render :show, status: :ok, location: @team }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
+    authorize @team, :update?
+    if @team.update(team_params)
+      redirect_to @team, notice: t(:updated, model: t(:team, scope: 'activerecord.models'))
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /teams/1 or /teams/1.json
   def destroy
+    authorize @team, :detroy?
     @team.destroy
-    respond_to do |format|
-      format.html { redirect_to teams_url, notice: "Team was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to teams_url, notice: t(:deleted, model: t(:team, scope: 'activerecord.models'))
   end
 
   private

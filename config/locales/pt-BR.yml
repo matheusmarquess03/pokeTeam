@@ -1,5 +1,7 @@
 pt-BR:
   webapp_slogan: "Times Pokemons"
+  you_are_not_authorized_to_perform_this_action: "Você não é autorizado para realizar essa ação"
+
   created: "%{model} foi criado com sucesso."
   created_f: "%{model} foi criada com sucesso."
   create_model: "Criar %{model}"

@@ -1,6 +1,7 @@
 <%= title t("team #{@team.name}", scope: "activerecord.models") %>
+
+<%= link_to_back(teams_path) %>
 <% if current_trainer == @team.trainer %>
-  <%= link_to_back(teams_path) %>
   <%= link_to_edit_resource(edit_team_path(@team), t(:edit_model, model: t(:team, scope: 'activerecord.models'))) %>
 <% end %>
 <div class="row">
