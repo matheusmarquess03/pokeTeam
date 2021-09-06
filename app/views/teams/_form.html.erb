@@ -1,22 +1,75 @@
-<%= form_with(model: team, local: true) do |form| %>
-  <% if team.errors.any? %>
+<%= form_for @team do |form| %>
+  <% if @team.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
 
       <ul>
-        <% team.errors.full_messages.each do |message| %>
+        <% @team.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field ">
+  <div class="field">
     <%= form.label :name %><br />
     <%= form.text_field :name, autofocus: true, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="pokemons row">
+    <%= form.fields_for :pokemons do |p| %>
+      <div class="field col-sm-6">
+        <%= p.label :name %><br />
+        <%= p.select  :name, 
+                      options_for_select(@pokedex.map { |p| [p['name'], p['name']] }),
+                      { include_blank: true } %>
+      </div>
+    <% end %>
+    <%= form.fields_for :pokemons do |p| %>
+      <div class="field col-sm-6">
+        <%= p.label :name %><br />
+        <%= p.select  :name, 
+                      options_for_select(@pokedex.map { |p| [p['name'], p['name']] }),
+                      { include_blank: true } %>
+      </div>
+    <% end %>
+    <%= form.fields_for :pokemons do |p| %>
+      <div class="field col-sm-6">
+        <%= p.label :name %><br />
+        <%= p.select  :name,
+                      options_for_select(@pokedex.map { |p| [p['name'], p['name']] }),
+                      { include_blank: true } %>
+      </div>
+    <% end %>
+    <%= form.fields_for :pokemons do |p| %>
+      <div class="field col-sm-6">
+        <%= p.label :name %><br />
+        <%= p.select  :name,
+                      options_for_select(@pokedex.map { |p| [p['name'], p['name']] }),
+                      { include_blank: true } %>
+      </div>
+    <% end %>
+    <%= form.fields_for :pokemons do |p| %>
+      <div class="field col-sm-6">
+        <%= p.label :name %><br />
+        <%= p.select  :name,
+                      options_for_select(@pokedex.map { |p| [p['name'], p['name']] }),
+                      { include_blank: true } %>
+      </div>
+    <% end %>
+    <%= form.fields_for :pokemons do |p| %>
+      <div class="field col-sm-6">
+        <%= p.label :name %><br />
+        <%= p.select  :name,
+                      options_for_select(@pokedex.map { |p| [p['name'], p['name']] }),
+                      { include_blank: true } %>
+      </div>
+    <% end %>
+  </div>
+
+  <%# <button class="btn btn-secondary" id="plus_pokemon">+</button> %>
+
+  <div class="actions mt-3">
+    <%= form.submit t(:create_model, model: t(:team, scope: 'activerecord.models')), class: 'btn btn-primary' %>
   </div>
 <% end %>
