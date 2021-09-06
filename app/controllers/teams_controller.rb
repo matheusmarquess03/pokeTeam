@@ -34,6 +34,7 @@ class TeamsController < ApplicationController
         pokeapi['types'].each do |type|
           types_pokemon += "#{type['type']['name']} "
         end
+        @pokemon.type_pokemon = types_pokemon
       end
     end
     @team.trainer = current_trainer

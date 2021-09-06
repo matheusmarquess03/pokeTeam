@@ -21,13 +21,20 @@ pt-BR:
 
   activerecord:
     models:
+      pokemon: "Pokemon"
       team: "Time"
       trainer: "Treinador"
     attributes:
-      time:
+      pokemon:
         name: "Nome"
+        sprint_url: "Sprint Frontal"
+        type: "Tipo"
+      team:
+        name: "Nome"
+        pokemon: "Pokemon"
         trainer: "Treinador"
         trainer_id: "Treinador"
+        quantity_pokemon: "Quantidade de pokemons"
       trainer:
         age: "Idade"
         email: "Email"
@@ -52,6 +59,11 @@ pt-BR:
             name:
               blank: "Obrigatório"
         team:
+          attributes:
+            name:
+              blank: "Obrigatório"
+        pokemon:
+          maximum_pokemon_team: "O máximo de pokemons são 6 por times"
           attributes:
             name:
               blank: "Obrigatório"
