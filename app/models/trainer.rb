@@ -9,4 +9,6 @@ class Trainer < ApplicationRecord
   enum gender: [:male, :female, :other]
   
   has_many :teams, dependent: :delete_all
+
+  has_one_attached :picture
 end
