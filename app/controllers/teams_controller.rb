@@ -63,7 +63,7 @@ class TeamsController < ApplicationController
 
   # DELETE /teams/1 or /teams/1.json
   def destroy
-    authorize @team, :detroy?
+    authorize @team, :destroy?
     @team.destroy
     redirect_to teams_url, notice: t(:deleted, model: t(:team, scope: 'activerecord.models'))
   end
