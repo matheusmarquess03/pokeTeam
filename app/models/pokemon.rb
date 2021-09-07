@@ -1,6 +1,6 @@
 class Pokemon < ApplicationRecord
     belongs_to :team
-    validates :name, presence: true
+    #validates :name, presence: true
   
     before_save :verify_quantity_team
   
