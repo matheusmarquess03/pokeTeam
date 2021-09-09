@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe Pokemon, type: :model do
   let!(:pokemon) { build(:pokemon) }
 

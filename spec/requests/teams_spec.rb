@@ -32,9 +32,9 @@ RSpec.describe '/teams', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new team' do
-        expect {
+        expect do
           post teams_url, params: { team: valid_attributes }
-        }.to change(Team, :count).by(1)
+        end.to change(Team, :count).by(1)
       end
 
       it 'redirects to the created team' do
@@ -45,12 +45,12 @@ RSpec.describe '/teams', type: :request do
 
     context 'with invalid parameters' do
       it 'does not create a new Team' do
-        expect {
+        expect do
           post teams_url, params: { team: { name: nil } }
-        }.to change(Team, :count).by(0)
+        end.to change(Team, :count).by(0)
       end
 
-      it "renders a erro 422" do
+      it 'renders a erro 422' do
         post teams_url, params: { team: { name: nil } }
         expect(response).to have_http_status(422)
       end
@@ -77,9 +77,9 @@ RSpec.describe '/teams', type: :request do
 
   describe 'DELETE /destroy' do
     it 'destroys the requested team' do
-      expect {
+      expect do
         delete team_url(team)
-      }.to change(Team, :count).by(-1)
+      end.to change(Team, :count).by(-1)
     end
 
     it 'redirects to the teams list' do

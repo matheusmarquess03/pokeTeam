@@ -4,6 +4,6 @@ FactoryBot.define do
     email { FFaker::Internet.email }
     password { 'changeme' }
     age { 20 }
-    gender { FFaker::Gender.binary }  
+    gender { FFaker::Gender.binary }
   end
 end

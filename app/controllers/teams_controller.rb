@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: %i[ show edit update destroy ]
-  before_action :get_pokedex, only: %i[ new edit create update]
+  before_action :set_team, only: %i[show edit update destroy]
+  before_action :get_pokedex, only: %i[new edit create update]
 
   # GET /teams or /teams.json
   def index
@@ -29,18 +29,17 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     authorize @team, :create?
-    params[:team][:pokemons_attributes].each do |index, pokemon|
-      unless pokemon['name'].blank?
-        pokeapi = GetPokedex.new(pokemon['name']).get_pokemon()
-        @pokemon = @team.pokemons.new(name: pokeapi['name'],
-                              sprite_url: pokeapi['sprites']['front_default'],
-                            )
-        types_pokemon = ''
-        pokeapi['types'].each do |type|
-          types_pokemon += "#{type['type']['name']} "
-        end
-        @pokemon.type_pokemon = types_pokemon
+    params[:team][:pokemons_attributes].each do |_index, pokemon|
+      next if pokemon['name'].blank?
+
+      pokeapi = GetPokedex.new(pokemon['name']).get_pokemon
+      @pokemon = @team.pokemons.new(name: pokeapi['name'],
+                                    sprite_url: pokeapi['sprites']['front_default'])
+      types_pokemon = ''
+      pokeapi['types'].each do |type|
+        types_pokemon += "#{type['type']['name']} "
       end
+      @pokemon.type_pokemon = types_pokemon
     end
     @team.trainer = current_trainer
 
@@ -69,18 +68,19 @@ class TeamsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_team
-      @team = Team.find(params[:id])
-    end
 
-    def get_pokedex
-      @pokedex = GetPokedex.new().get_pokedex()
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_team
+    @team = Team.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def team_params
-      # params.require(:team).permit(:name, pokemons_attributes: [:name])
-      params.require(:team).permit(:name)
-    end
+  def get_pokedex
+    @pokedex = GetPokedex.new.get_pokedex
+  end
+
+  # Only allow a list of trusted parameters through.
+  def team_params
+    # params.require(:team).permit(:name, pokemons_attributes: [:name])
+    params.require(:team).permit(:name)
+  end
 end
