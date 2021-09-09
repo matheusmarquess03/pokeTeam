@@ -4,34 +4,29 @@
   <% end -%>
   <div class="row">
     <div class="col-sm-6">
-      <p>
-        <%= t(:name, scope: 'activerecord.attributes.trainer') %>
-        <h5><%= @trainer.name %></h5>
-      </p>
+      <h4>
+        <b><%= t(:name, scope: 'activerecord.attributes.trainer') %>: </b> 
+        <%= @trainer.name %>
+      </h4>
+      <br>
+      <h4>
+        <b><%= t(:email, scope: 'activerecord.attributes.trainer') %>:</b>
+        <%= @trainer.email %>
+      </h4>
     </div>
-
     <div class="col-sm-6">
-      <p>
-        <%= t(:email, scope: 'activerecord.attributes.trainer') %>
-        <h5><%= @trainer.email %></h5>
-      </p>
-    </div>
-
-    <div class="col-sm-6">
-      <p>
-        <%= t(:age, scope: 'activerecord.attributes.trainer') %>
-        <h5><%= @trainer.age %></h5>
-      </p>
-    </div>
-
-    <div class="col-sm-6">
-      <p>
-        <%= t(:gender, scope: 'activerecord.attributes.trainer') %>
-        <h5><%= @trainer.gender %></h5>
-      </p>
+      <h4>
+        <b> <%= t(:age, scope: 'activerecord.attributes.trainer') %>: </b> 
+        <%= @trainer.age %>
+      </h4>
+      <br>
+      <h4>
+        <b><%= t(:gender, scope: 'activerecord.attributes.trainer') %>:</b>
+        <%= t("enums.genders.#{@trainer.gender}")%>
+      </h4>
     </div>
   </div>
-
+  <br>
 
   <div class="teams mt-4">
     <h4>

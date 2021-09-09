@@ -11,21 +11,8 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
-//= require jquery3
-//= require jquery
-//= require jquery_ujs
-//= require cocoon
-//= require popper
-//= require bootstrap-sprockets
 //= require turbolinks
-//= require bootstrap-modal
-//= require bootstrap-modalmanager
-//= require activestorage
 //= require_tree .
-
-document.addEventListener("turbolinks:load", function() {
-    $("tr[data-link]").click(function() {
-      window.location = $(this).data('link');
-    });
-  });
+//= require jquery3
+//= require popper
+//= require bootstrap

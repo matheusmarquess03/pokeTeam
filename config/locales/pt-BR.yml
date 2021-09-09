@@ -29,15 +29,16 @@ pt-BR:
       trainer: "Treinador"
     attributes:
       pokemon:
-        name: "Nome"
+        name: "Nome do Pokemon"
         sprint_url: "Sprint Frontal"
         type_pokemon: "Tipo"
       team:
-        name: "Nome"
+        name: "Nome do Time"
         pokemon: "Pokemon"
         trainer: "Treinador"
         trainer_id: "Treinador"
         quantity_pokemon: "Quantidade de pokemons"
+        name_team: "Nome do time"
       trainer:
         age: "Idade"
         email: "Email"

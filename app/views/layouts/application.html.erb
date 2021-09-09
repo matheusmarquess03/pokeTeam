@@ -1,39 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PokeTeam</title>
-    <%= csrf_meta_tags %>
+
+<head>
+  <title>PokeTeam</title>
+  <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <link rel="stylesheet" media="all"
+        href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
+        data-turbolinks-track="true" />
+      <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <%= stylesheet_link_tag 'application' , media: 'all' , 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application' , 'data-turbolinks-track': 'reload' %>
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= render 'shared/navbar' %>
-    <div class="container">
-      <%= render "shared/flashes" %>
-      <div class="container-fluid pt-3 px-4">
-      <div class="d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap py-2">
-        <div class="d-flex align-items-center flex-wrap">
-          <div class="d-flex align-items-baseline flex-wrap mr-5">
-            <h2 class="subheader-title text-dark font-weight-bold my-1 mr-3"><%= yield :title %></h2>
+        <nav class="navbar navbar-expand-lg navbar navbar navbar-dark bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">POKETEAM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+              <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                  <%= link_to t(:teams, scope: 'menu'), teams_path, class: "nav-link #{'active' if controller_path == 'teams'}" %>
+                </li>
+                <% if current_trainer %>
+                  <li class="nav-item ">
+                    <%= link_to profile_path(current_trainer), class: "nav-link #{'active' if controller_path == 'profile'}" do %>
+                      <%= current_trainer.name %>
+                    <% end %>
+                  </li>
+                  <% end %>
+              </ul>
+            <% if trainer_signed_in? %>  
+              <li class="d-flex">
+                <%= button_to destroy_trainer_session_path, method: :delete, class: 'nav-link btn' do %>
+                  <%= t(:Sair, scope: 'menu.dropdown') %>
+                <% end %>
+              </li>
+            <% end %>
+            </div>
           </div>
-        </div>
-        <div class="d-flex align-items-center pr-0">
-          <%= yield :right %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <%= yield %>
-        </div>
-      </div>
-    </div>
-    <%= yield :scripts %>
-  </body>
+        </nav>
+</head>
+
+<body>
+  <%= yield %>
+</body>
+
+
 </html>

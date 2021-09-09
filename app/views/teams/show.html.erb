@@ -1,32 +1,48 @@
-<%= title "#{t(:team, scope: "activerecord.models")} #{@team.name}" %>
-<%= link_to_back(teams_path) %>
-<% if current_trainer == @team.trainer %>
-  <%= link_to_edit_resource(edit_team_path(@team), t(:edit_model, model: t(:team, scope: 'activerecord.models'))) %>
-<% end %>
-<div class="row">
-<p class="col-sm-6">
-  <small><%= t(:name, scope: 'activerecord.attributes.team') %>: </small>
-<strong><%= @team.name %></strong>
-</p>
+<%= title "#{t(:team, scope: " activerecord.models")} #{@team.name}" %>
+  <%= link_to_back(teams_path) %>
+    <% if current_trainer==@team.trainer %>
+      <%= link_to_edit_resource(edit_team_path(@team), t(:edit_model, model: t(:team, scope: 'activerecord.models' )))
+        %>
+        <% end %>
+          <div class="row">
+            <h5 class="col-sm-6">
+              <small>
+                <%= t(:name, scope: 'activerecord.attributes.team' ) %>:
+              </small>
+              <i>
+                <%= @team.name %>
+              </i>
+            </h5>
 
-<p class="col-sm-6">
-  <small><%= t(:trainer, scope: 'activerecord.attributes.team') %></small>
-  <strong><%= @team.trainer.name %></strong>
-</p>
-</div>
-
-<h4><%= t(:pokemon, scope: 'activerecord.attributes.team').pluralize %></h4>
-<div class="row">
-  <% @team.pokemons.each do |pokemon| %>
-    <div class="col-6 col-sm-4 p-1">
-    <div class="card" style="border-radius: 30px; box-shadow: 1px 1px 20px rgba(0,0,0,.3)">
-      <%= image_tag(pokemon.sprite_url, class: 'card-img-top', width: '300px') %>
-      <%# <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Card image cap"> %>
-      <div class="card-body">
-        <h5 class="card-title"><%= pokemon.name %></h5>
-        <p class="card-text"><%= pokemon.type_pokemon %></p>
-      </div>
-    </div>
-    </div>
-  <% end %>
-</div>
+            <h5 class="col-sm-6">
+              <small>
+                <%= t(:trainer, scope: 'activerecord.attributes.team' ) %>:
+              </small>
+              <i>
+                <%= @team.trainer.name %>
+              </i>
+            </h5>
+          </div>
+        </br>
+          <h4>
+            <%= t(:pokemon, scope: 'activerecord.attributes.team' ).pluralize %>
+          </h4>
+          <div class="row">
+            <% @team.pokemons.each do |pokemon| %>
+              <div class="col-6 col-sm-4 p-1">
+                <div class="card" style="border-radius: 30px; box-shadow: 1px 1px 20px rgba(0,0,0,.3)">
+                  <%= image_tag(pokemon.sprite_url, class: 'card-img-top' , width: '300px' ) %>
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        Nome:
+                        <%= pokemon.name %>
+                      </h5>
+                      <h6 class="card-text">
+                        Tipo:
+                        <%= pokemon.type_pokemon %>
+                      </h6>
+                    </div>
+                </div>
+              </div>
+              <% end %>
+          </div>

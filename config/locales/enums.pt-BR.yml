@@ -1,0 +1,7 @@
+'pt-BR':
+    enums:
+        genders:
+            male: "Masculino"
+            female: "Feminino"
+            other: "Outro(a)"
+            
