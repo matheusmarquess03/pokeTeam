@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 
-RSpec.describe Pokemon, type: :model do	RSpec.describe Pokemon, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"	  let!(:pokemon) { build(:pokemon) }
+RSpec.describe Pokemon, type: :model do
+  let!(:pokemon) { build(:pokemon) }
 
   it 'should create a pokemon' do
     expect do
@@ -17,4 +17,4 @@ RSpec.describe Pokemon, type: :model do	RSpec.describe Pokemon, type: :model do
       expect(pokemon).to be_invalid
     end
   end
-end	end
+end
