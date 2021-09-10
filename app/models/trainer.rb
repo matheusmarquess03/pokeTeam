@@ -1,8 +1,8 @@
 class Trainer < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :lockable, :timeoutable, and :omniauthable
+  # :lockable, :timeoutable, and :omniauthable, :confirmable,
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :trackable
+         :recoverable, :rememberable, :validatable, :trackable
 
   validates :name, presence: true
 
