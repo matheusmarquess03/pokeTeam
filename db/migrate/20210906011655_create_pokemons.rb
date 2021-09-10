@@ -5,7 +5,7 @@ class CreatePokemons < ActiveRecord::Migration[5.2]
       t.string :type
       t.string :sprite_url
       t.references :team, null: false, foreign_key: true
-      
+
       t.timestamps
     end
   end
