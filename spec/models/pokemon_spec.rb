@@ -12,7 +12,7 @@ RSpec.describe Pokemon, type: :model do
   context 'Validates' do
     it 'is not valid without name' do
       pokemon = build(:pokemon, name: nil)
-      pokemon.valid?
+      pokemon.invalid?
       expect(pokemon).to be_invalid
     end
   end

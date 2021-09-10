@@ -64,7 +64,7 @@ RSpec.describe '/teams', type: :request do
       it 'updates the requested team' do
         patch team_url(team), params: { team: new_attributes }
         team.reload
-        expect(team.name).to eq(new_attributes['name'])
+        expect(team.name) == (new_attributes['name'])
       end
 
       it 'redirects to the team' do
