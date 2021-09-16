@@ -6,9 +6,9 @@ gem 'pg', '~> 0.18.4'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
 ruby '2.6.3'
-gem 'sqlite3'
 
-# Assets Gems ##################################################################
+
+# Assets Gems ###############################################################
 gem 'bootstrap', '~> 5.1.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'font-awesome-rails'
@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
+gem 'uglifier', '>= 1.3.0'
 
 # Authentication
 gem 'devise', '4.7.3'
