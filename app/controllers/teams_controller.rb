@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   # GET /teams or /teams.json
   def index
     authorize Team, :index?
-    @teams = Team.all
+    @teams = current_trainer.teams
   end
 
   # GET /teams/1 or /teams/1.json
